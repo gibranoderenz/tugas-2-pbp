@@ -7,7 +7,11 @@ Link hasil _deployment_ tugas ini dapat diakses [di sini](https://gibs-tugas-2-p
 ### Bagan
 
 ```
-Klik URL -> `urls.py`
+test
+test
+test
+test
+test
 ```
 
 ### Penjelasan
