@@ -4,11 +4,23 @@ Link hasil _deployment_ tugas ini dapat diakses [di sini](https://gibs-tugas-2-p
 
 ## Proses _Request_ dan _Response_
 
-text goes here
+### Bagan
 
-## Mengapa Menggunakan _Virtual Enviroment_?
+```
+test
+test
+test
+test
+test
+```
 
-text goes here
+### Penjelasan
+
+Saat user mengakses [link ini](https://gibs-tugas-2-pbp.herokuapp.com/katalog/), user akan mengakses URL aplikasi Heroku dengan _route_ spesifik, yaitu `katalog`.
+
+## Mengapa Menggunakan _Virtual Environment_?
+
+Dengan menggunakan _virtual environment_ saat mengerjakan proyek Django, _dependencies_ proyek tersebut tidak akan mengganggu Python yang sudah di-_install_ secara global di _device_ dan menjadikan _workspace_ pengerjaan proyek lebih bersih.
 
 ## Proses Pengerjaan Tugas Ini
 
