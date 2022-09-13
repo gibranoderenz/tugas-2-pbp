@@ -5,17 +5,7 @@ Link hasil _deployment_ tugas ini dapat diakses [di sini](https://gibs-tugas-2-p
 ## Proses _Request_ dan _Response_
 
 ### Bagan
-
-```
-ada bagan di sini
-
-
-
-
-
-
-
-```
+![Bagan Request-Response Tugas 2 PBP](https://user-images.githubusercontent.com/70869295/189836526-d7899933-6c75-4275-9802-3150d6153bb6.png)
 
 ### Penjelasan
 
