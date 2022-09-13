@@ -77,6 +77,14 @@ ada bagan di sini
 
    Terlihat bahwa fungsi tersebut akan me-_render_ suatu halaman HTML, pada kasus ini adalah `katalog.html`, serta diberikan context yang dapat di-_render_ di halaman HTML tersebut. Dengan kata lain, fungsi tersebut akan mengembalikan halaman HTML sebagai _response_ dari _request_ user, yaitu `katalog/`.
 
+   Tetapi tidak hanya sebatas itu saja interaksi yang terjadi di `get_catalog_items`. Perhatikan kode berikut:
+
+   ```py
+   catalog_items = CatalogItem.objects.all()
+   ```
+
+   Di sini, `get_catalog_items` juga berinteraksi dengan _model_ `CatalogItem`, pada kasus ini untuk mengambil semua benda katalog yang ada di dalam _database_, dengan tujuan untuk men-_display_ data tersebut di halaman HTML `katalog.html`.
+
 5. **Halaman HTML disajikan**<br>
    Akhirnya, user dapat mengakses halaman HTML, yaitu `katalog.html`.
 
