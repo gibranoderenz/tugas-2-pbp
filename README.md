@@ -44,7 +44,41 @@ ada bagan di sini
    Kode tersebut berarti _setiap request user untuk mengakses route `katalog` akan di-handle oleh file katalog/urls.py_. Hal ini, menurut saya, untuk merapikan struktur kode proyek Django.
 
 3. `katalog/urls.py` ke `views.py`<br>
-   Setelah ...
+   Django kemudian akan mencari file `urls.py` di folder `katalog`, kemudian mencari _route_ `/`, karena route awal adalah `katalog/`.
+
+   ```py
+   from django.urls import path
+   from katalog import views
+
+
+   urlpatterns = [
+      path("", views.get_catalog_items, name="get_catalog_items")
+   ]
+   ```
+
+   Terlihat bahwa _route_ tersebut di-_handle_ oleh salah satu _view_ yang terdapat di `katalog/views`, yaitu `get_catalog_items`.
+
+4. Di `views.py`<br>
+   Seperti yang telah dijabarkan sebelumnya, fungsi `get_catalog_items` akan menjadi _request handler_ dari `katalog/`.
+
+   ```py
+   from django.shortcuts import render
+   from .models import CatalogItem
+
+   def get_catalog_items(request):
+      catalog_items = CatalogItem.objects.all()
+      context = {
+      "name": "Gibrano Fabien Derenz",
+      "student_ID": "2106750622",
+      "catalog_items": catalog_items
+      }
+      return render(request, "katalog.html", context)
+   ```
+
+   Terlihat bahwa fungsi tersebut akan me-_render_ suatu halaman HTML, pada kasus ini adalah `katalog.html`, serta diberikan context yang dapat di-_render_ di halaman HTML tersebut. Dengan kata lain, fungsi tersebut akan mengembalikan halaman HTML sebagai _response_ dari _request_ user, yaitu `katalog/`.
+
+5. Halaman HTML diberikan
+   Akhirnya, user dapat mengakses halaman HTML, yaitu `katalog.html`.
 
 ## Mengapa Menggunakan _Virtual Environment_?
 

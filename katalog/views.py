@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from .models import CatalogItem
 
-# TODO: Create your views here.
-
-
 def get_catalog_items(request):
     catalog_items = CatalogItem.objects.all()
     context = {
