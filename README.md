@@ -5,6 +5,7 @@ Link hasil _deployment_ tugas ini dapat diakses [di sini](https://gibs-tugas-2-p
 ## Proses _Request_ dan _Response_
 
 ### Bagan
+
 ![Bagan Request-Response Tugas 2 PBP](https://user-images.githubusercontent.com/70869295/189836526-d7899933-6c75-4275-9802-3150d6153bb6.png)
 
 ### Penjelasan
@@ -84,6 +85,6 @@ Dengan menggunakan _virtual environment_ saat mengerjakan proyek Django, _depend
 
 Selain itu, _virtual environment_ ini memungkinkan project Django yang sedang dikerjakan dijalankan di laptop atau PC lain. Misalnya, peserta A dalam suatu kelompok memiliki _repository project_ Django. Kemudian, peserta B melakukan _cloning_ terhadap _repo_ tersebut. Agar semua _dependencies_ project tersebut dapat dimiliki oleh _device_ B, maka ia akan melakukan `pip install -r requirements.txt`. Hal ini akan menunjang agar _project_ Django yang ada di _device_ A bisa sama dengan yang dimiliki di _device_ B.
 
-## Proses Pengerjaan Tugas Ini
+## Proses Pengerjaan Tugas 2
 
 text goes here
