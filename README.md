@@ -19,10 +19,10 @@ ada bagan di sini
 
 ### Penjelasan
 
-1. URL ke `urls.py`<br>
+1. **URL ke `urls.py`<br>**
    Saat user mengakses [link ini](https://gibs-tugas-2-pbp.herokuapp.com/katalog/), Django akan pergi ke file `urls.py` pada folder utama (yaitu folder project), kemudian akan mencari route `katalog/` pada list `urlpatterns`.
 
-2. Di `urls.py`<br>
+2. **Di `urls.py`<br>**
    Perlu diingat struktur `urlpatterns`:
 
    ```py
@@ -43,7 +43,7 @@ ada bagan di sini
 
    Kode tersebut berarti _setiap request user untuk mengakses route `katalog` akan di-handle oleh file katalog/urls.py_. Hal ini, menurut saya, untuk merapikan struktur kode proyek Django.
 
-3. `katalog/urls.py` ke `views.py`<br>
+3. **`katalog/urls.py` ke `views.py`**<br>
    Django kemudian akan mencari file `urls.py` di folder `katalog`, kemudian mencari _route_ `/`, karena route awal adalah `katalog/`.
 
    ```py
@@ -58,7 +58,7 @@ ada bagan di sini
 
    Terlihat bahwa _route_ tersebut di-_handle_ oleh salah satu _view_ yang terdapat di `katalog/views`, yaitu `get_catalog_items`.
 
-4. Di `views.py`<br>
+4. **Di `views.py`**<br>
    Seperti yang telah dijabarkan sebelumnya, fungsi `get_catalog_items` akan menjadi _request handler_ dari `katalog/`.
 
    ```py
@@ -77,7 +77,7 @@ ada bagan di sini
 
    Terlihat bahwa fungsi tersebut akan me-_render_ suatu halaman HTML, pada kasus ini adalah `katalog.html`, serta diberikan context yang dapat di-_render_ di halaman HTML tersebut. Dengan kata lain, fungsi tersebut akan mengembalikan halaman HTML sebagai _response_ dari _request_ user, yaitu `katalog/`.
 
-5. Halaman HTML diberikan<br>
+5. **Halaman HTML disajikan**<br>
    Akhirnya, user dapat mengakses halaman HTML, yaitu `katalog.html`.
 
 ## Mengapa Menggunakan _Virtual Environment_?
