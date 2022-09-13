@@ -77,7 +77,7 @@ ada bagan di sini
 
    Terlihat bahwa fungsi tersebut akan me-_render_ suatu halaman HTML, pada kasus ini adalah `katalog.html`, serta diberikan context yang dapat di-_render_ di halaman HTML tersebut. Dengan kata lain, fungsi tersebut akan mengembalikan halaman HTML sebagai _response_ dari _request_ user, yaitu `katalog/`.
 
-5. Halaman HTML diberikan
+5. Halaman HTML diberikan<br>
    Akhirnya, user dapat mengakses halaman HTML, yaitu `katalog.html`.
 
 ## Mengapa Menggunakan _Virtual Environment_?
