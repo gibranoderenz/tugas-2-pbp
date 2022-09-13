@@ -92,6 +92,8 @@ ada bagan di sini
 
 Dengan menggunakan _virtual environment_ saat mengerjakan proyek Django, _dependencies_ proyek tersebut tidak akan mengganggu Python yang sudah di-_install_ secara global di _device_ dan menjadikan _workspace_ pengerjaan proyek lebih bersih.
 
+Selain itu, _virtual environment_ ini memungkinkan project Django yang sedang dikerjakan dijalankan di laptop atau PC lain. Misalnya, peserta A dalam suatu kelompok memiliki _repository project_ Django. Kemudian, peserta B melakukan _cloning_ terhadap _repo_ tersebut. Agar semua _dependencies_ project tersebut dapat dimiliki oleh _device_ B, maka ia akan melakukan `pip install -r requirements.txt`. Hal ini akan menunjang agar _project_ Django yang ada di _device_ A bisa sama dengan yang dimiliki di _device_ B.
+
 ## Proses Pengerjaan Tugas Ini
 
 text goes here
