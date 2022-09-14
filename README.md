@@ -87,4 +87,70 @@ Selain itu, _virtual environment_ ini memungkinkan project Django yang sedang di
 
 ## Proses Pengerjaan Tugas 2
 
-text goes here
+### 1. Membuat fungsi di `views.py`<br>
+
+Untuk membuat fungsi yang dapat mengambil data dari model, saya meng-_assign_ suatu variabel, yaitu `catalog_items`, untuk menampung semua _item_ catalog. Variabel tersebut saya isi dengan `CatalogItem.objects.all()`
+yang akan mengembalikan semua object `CatalogItem` yang ada di _database_.
+
+Data tersebut dimasukkan ke dalam suatu dictionary `context` yang akan menjadi salah satu argumen dalam fungsi `render()`. Hal ini untuk mengirimkan data-data tersebut ke `katalog.html` yang nantinya akan di-_render_.
+
+### 2. Membuat routing untuk fungsi tersebut<br>
+
+Untuk setup routing fungsi tersebut, hal pertama yang saya lakukan adalah memodifikasi list `urlpatterns` pada `project-django/urls.py` menjadi sebagai berikut:
+
+```py
+urlpatterns = [
+ path('admin/', admin.site.urls),
+ path('', include('example_app.urls')),
+ path('katalog/', include('katalog.urls')),
+]
+```
+
+Kemudian saya mengisi file `katalog/urls.py` dengan kode berikut:
+
+```py
+from django.urls import path
+from katalog import views
+
+urlpatterns = [
+   path("", views.get_catalog_items, name="get_catalog_items")
+]
+```
+
+Maka, _route_ `katalog/` akan berfungsi dengan semestinya.
+
+### 3. Memetakan data ke HTML<br>
+
+Untuk ini, saya memodifikasi file `katalog.html` sebagai berikut:
+
+```html
+<h5>Name:</h5>
+<p>{{ name }}</p>
+
+<h5>Student ID:</h5>
+<p>{{ student_ID }}</p>
+```
+
+Bagian di atas akan men-_display_ value dari key `name` dan `student_ID` yang diperoleh dari dictionary `context` yang disajikan dari fungsi awal di `views.py`.
+
+```html
+<table>
+  ... {% comment %} Add the data below this line {% endcomment %} {% for item in
+  catalog_items %}
+  <tr>
+    <th>{{ item.item_name }}</th>
+    <th>{{ item.item_price }}</th>
+    <th>{{ item.item_stock }}</th>
+    <th>{{ item.rating }}</th>
+    <th>{{ item.description }}</th>
+    <th><a href="{{" item.item_url }}> {{ item.item_name }} </a></th>
+  </tr>
+  {% endfor %}
+</table>
+```
+
+Bagian di atas akan menampilkan semua atribut yang dimiliki masing-masing objek `CatalogItem` yang ada di dalam _database_. Hal ini juga dimungkinkan dengan menggunakan sintaks Django Template Language, pada kasus ini dengan _for-loop_.
+
+### 4. Melakukan _deployment_<br>
+
+Hal pertama yang saya lakukan adalah membuat app Heroku baru. Saya beri nama `gibs-tugas-2-pbp`. Kemudian, saya menyimpan nama app tersebut ke Actions Secrets _repository_ GitHub akan akan menampung _project_ ini dengan nama `HEROKU_APP_NAME`. Kemudian, saya juga menyimpan API Key akun Heroku saya ke dalam `Actions Secrets` _repository_ GitHub yang sama, tetapi kali ini dengan nama `HEROKU_API_KEY`. Akhirnya, saya _re-run_ _workflows_ yang ada di tab `Actions` _repository_ GitHub, dan situs web tersebut berjalan.
