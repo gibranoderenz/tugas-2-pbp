@@ -153,4 +153,4 @@ Bagian di atas akan menampilkan semua atribut yang dimiliki masing-masing objek 
 
 ### 4. Melakukan _deployment_<br>
 
-Hal pertama yang saya lakukan adalah membuat app Heroku baru. Saya beri nama `gibs-tugas-2-pbp`. Kemudian, saya menyimpan nama app tersebut ke Actions Secrets _repository_ GitHub akan akan menampung _project_ ini dengan nama `HEROKU_APP_NAME`. Kemudian, saya juga menyimpan API Key akun Heroku saya ke dalam `Actions Secrets` _repository_ GitHub yang sama, tetapi kali ini dengan nama `HEROKU_API_KEY`. Akhirnya, saya _re-run_ _workflows_ yang ada di tab `Actions` _repository_ GitHub, dan situs web tersebut berjalan.
+Hal pertama yang saya lakukan adalah membuat _app_ Heroku baru. Saya beri nama `gibs-tugas-2-pbp`. Kemudian, saya menyimpan nama _app_ tersebut ke `Actions Secrets` _repository_ GitHub akan akan menampung _project_ ini dengan nama `HEROKU_APP_NAME`. Kemudian, saya juga menyimpan API Key akun Heroku saya ke dalam `Actions Secrets` _repository_ GitHub yang sama, tetapi kali ini dengan nama `HEROKU_API_KEY`. Akhirnya, saya _re-run_ _workflows_ yang ada di tab `Actions` _repository_ GitHub, dan _app_ tersebut berjalan.
