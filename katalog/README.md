@@ -1,6 +1,6 @@
 # Tugas 2 PBP
 
-Link hasil _deployment_ tugas ini dapat diakses [di sini](https://gibs-tugas-2-pbp.herokuapp.com/katalog/).
+Link hasil _deployment_ tugas ini dapat diakses [di sini](https://gibs-tugas-pbp.herokuapp.com/katalog/).
 
 ## Proses _Request_ dan _Response_
 
