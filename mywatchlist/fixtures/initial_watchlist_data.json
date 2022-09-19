@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "title": "Spider-Man: No Way Home",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2021-12-15",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "title": "The Gray Man",
+            "watched": false,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "title": "Top Gun: Maverick",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": false,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": false,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": false,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    }
+]

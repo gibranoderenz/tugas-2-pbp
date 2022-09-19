@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>My Watchlist</h1>
+
+{% if often_watch %}
+<h3>Selamat, kamu sudah banyak menonton!</h3>
+{% else %}
+<h3>Wah, kamu masih sedikit menonton!</h3>
+{% endif %}
+
+{% for data in watchlist_data %}
+<div>
+    <h3>{{data.pk}}. {{data.title}}</h3>
+
+    <strong>Watched</strong>
+    <p>{{data.watched}}</p>
+
+    <strong>Rating</strong>
+    <p>{{data.rating}}</p>
+
+    <strong>Release Date</strong>
+    <p>{{data.release_date | date:"F j, Y"}}</p>
+
+    <strong>Review</strong>
+    <p>{{data.review}}</p>
+    <hr>
+</div>
+{% endfor %}
+ {% endblock content %}
