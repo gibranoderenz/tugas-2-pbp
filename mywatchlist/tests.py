@@ -1,3 +1,15 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 
-# Create your tests here.
+
+class MyWatchListTestCase(TestCase):
+    def test_html_route_is_working(self):
+        res = Client().get('/mywatchlist/html/')
+        self.assertEqual(res.status_code, 200)
+
+    def test_json_route_is_working(self):
+        res = Client().get('/mywatchlist/json/')
+        self.assertEqual(res.status_code, 200)
+
+    def test_xml_route_is_working(self):
+        res = Client().get('/mywatchlist/xml/')
+        self.assertEqual(res.status_code, 200)
