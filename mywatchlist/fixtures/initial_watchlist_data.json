@@ -18,7 +18,7 @@
             "watched": true,
             "rating": 5,
             "release_date": "2021-12-15",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "review": "The fans' anticipation of this epic conclusion of the Spider-Man MCU trilogy will be well worth it. Watch it will fellow Spider-Man and/or MCU fans, get a popcorn, and experience a brilliant action-packed and heartfelt Spider-Man movie."
         }
     },
     {
@@ -27,9 +27,9 @@
         "fields": {
             "title": "The Gray Man",
             "watched": false,
-            "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "rating": 4,
+            "release_date": "2022-07-22",
+            "review": "With the A-list casting, this surely is a treat for action movie fans. The action sequences are really well made and overall it's an enjoyable film."
         }
     },
     {
@@ -39,74 +39,74 @@
             "title": "Top Gun: Maverick",
             "watched": true,
             "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "release_date": "2022-05-27",
+            "review": "Fly high with Tom Cruise in this epic journey! This film really captures the fighter jet pilot's POV in a breathtaking and memorable way, making this an amazing movie. Don't miss it!"
         }
     },
     {
         "model": "mywatchlist.mywatchlist",
         "pk": 5,
         "fields": {
-            "title": "Avengers: Endgame",
+            "title": "No Time to Die",
             "watched": false,
-            "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "rating": 4,
+            "release_date": "2021-09-30",
+            "review": "This entry of the Bond saga really captures James Bond's emotions well, letting the audience see the human side of James Bond in an exciting and heartfelt way. The action sequences are as per usual; Bond-esque."
         }
     },
     {
         "model": "mywatchlist.mywatchlist",
         "pk": 6,
         "fields": {
-            "title": "Avengers: Endgame",
-            "watched": false,
-            "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "title": "Venom: Let There Be Carnage",
+            "watched": true,
+            "rating": 3,
+            "release_date": "2021-11-17",
+            "review": "The bromance of Eddie Brock and Venom is emphasized in this second entry of Venom, introducing Carnage as the villain of the movie. The sound of the movie is great. However, the movie felt too quick."
         }
     },
     {
         "model": "mywatchlist.mywatchlist",
         "pk": 7,
         "fields": {
-            "title": "Avengers: Endgame",
-            "watched": true,
-            "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "title": "A Quiet Place Part II",
+            "watched": false,
+            "rating": 4,
+            "release_date": "2021-05-26",
+            "review": "Action scenes + tense scenes + great acting = a great movie experience!"
         }
     },
     {
         "model": "mywatchlist.mywatchlist",
         "pk": 8,
         "fields": {
-            "title": "Avengers: Endgame",
+            "title": "Thor: Love and Thunder",
             "watched": true,
-            "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "rating": 3,
+            "release_date": "2022-07-06",
+            "review": "The fourth Thor movie explores more on Thor after Avengers: Endgame. It's a good film, but the character of Gorr could be explored in a more detailed way."
         }
     },
     {
         "model": "mywatchlist.mywatchlist",
         "pk": 9,
         "fields": {
-            "title": "Avengers: Endgame",
+            "title": "Jurassic World Dominion",
             "watched": false,
-            "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "rating": 3,
+            "release_date": "2022-06-08",
+            "review": "This is a treat for Jurassic fans, as the old and new cast reunite and interact in a fun way, obviously including dinosaurs along the way."
         }
     },
     {
         "model": "mywatchlist.mywatchlist",
         "pk": 10,
         "fields": {
-            "title": "Avengers: Endgame",
+            "title": "Ready Player One",
             "watched": true,
             "rating": 5,
-            "release_date": "2019-04-24",
-            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+            "release_date": "2018-03-28",
+            "review": "The movie gives an amazing visual representation of the great novel, changing some things here and there to make the movie concise."
         }
     }
 ]
