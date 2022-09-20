@@ -6,10 +6,6 @@ from .models import MyWatchList
 # Create your views here.
 
 
-def index(request):
-    return render(request, "home.html")
-
-
 def show_watchlist_in_html(request):
     data = MyWatchList.objects.all()
     watched_count = MyWatchList.objects.filter(watched=True).count()

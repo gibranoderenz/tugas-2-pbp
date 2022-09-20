@@ -20,7 +20,7 @@
    ```
 
 2. JSON<br>
-   JSON adalah singkatan dari _JavaScript Object Notation_, di mana JSON menampung data-data aplikasi terkait dalam bentuk _key-value pair_.
+   JSON adalah singkatan dari _JavaScript Object Notation_, di mana JSON menampung data-data aplikasi terkait dalam bentuk _key-value pair_. Data-data yang berbeda dipisah dengan karakter koma (`,`). Ukuran data pada JSON lebih kecil dibandingkan ukuran data yang ditampung dalam XML.
 
    Contoh dari JSON adalah sebagai berikut:
 
@@ -65,9 +65,9 @@
    ```
 
 3. XML<br>
-   XML adalah singkatan dari _Extensible Markup Language_, di mana XML digunakan untuk melakukan _data-delivery_, seperti halnya JSON. Namun, hal yang membedakan antara XML dengan JSON adalah formatnya yang cukup serupa dengan HTML, di mana XML menggunakan _tags_ (contohnya `<firstname>Gibrano</firstname>`).
+   XML adalah singkatan dari _Extensible Markup Language_, di mana XML digunakan untuk melakukan _data-delivery_, seperti halnya JSON. Namun, hal yang membedakan antara XML dengan JSON adalah formatnya yang cukup serupa dengan HTML, di mana XML menggunakan _tags_ (contohnya `<firstname>Gibrano</firstname>`). Hal ini akan menyebabkan data yang ditampung menjadi lebih besar ukurannya dibandingkan JSON.
 
-   Contoh dari XML adalah sebagai berikut:
+   Contoh dari _file_ XML sederhana adalah sebagai berikut:
 
    ```xml
    <store>
@@ -95,7 +95,130 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
 
 ### Implementasi Checklist Tugas 3
 
-text goes here
+1. Membuat _app_ Django baru, yaitu `mywatchlist`<br>
+   Untuk membuat _app_ baru, saya menjalankan command berikut:
+
+   ```
+   python manage.py startapp mywatchlist
+   ```
+
+2. Menambahkan _path_ `mywatchlist`<br>
+   Untuk menambahkan _path_ baru, saya mengakses _file_ `urls.py` pada folder `project-django`, kemudian saya memodifikasi list `urlpatterns` sebagai berikut:
+
+   ```py
+   urlpatterns = [
+    ...
+    path('mywatchlist/', include('mywatchlist.urls')),
+   ]
+   ```
+
+   Ketika ada user yang mengakses path `mywatchlist/`, _request_ tersebut akan di-_handle_ di dalam file `urls.py` yang ada pada folder `mywatchlist`, yang telah dibuat pada langkah 1.
+
+3. Membuat model `MyWatchList`<br>
+   Untuk membuat model baru, saya mengakses file `models.py` yang ada di dalam folder `mywatchlist`, kemudian saya menambahkan kode berikut:
+
+   ```py
+   class MyWatchList(models.Model):
+      title = models.CharField(max_length=255)
+      watched = models.BooleanField()
+      rating = models.IntegerField()
+      release_date = models.DateField()
+      review = models.TextField()
+   ```
+
+   Ada beberapa pertimbangan ketika saya memilih _field_ yang digunakan untuk setiap atribut model tersebut:
+
+   - `title`<br>
+     Menurut saya, judul suatu film seharusnya tidak terlalu panjang, sehingga saya menggunakan `CharField` dengan menetapkan panjang maksimum 255 karakter.
+
+   - `watched`<br>
+     Menurut saya, karena data pada atribut ini adalah _ya_ atau _tidak_, maka saya memutuskan untuk menggunakan `BooleanField`, sehingga data yang tersimpan mudah dipahami (hanya berupa `true` atau `false`, atau sudah ditonton atau belum) dan, jika diinginkan, dapat dimanfaatkan untuk menambahkan informasi pada halaman HTML (berkaitan dengan bagian `bonus`).
+
+   - `rating`<br>
+     Karena rating yang akan digunakan hanya angka bulat 1 sampai 5, maka saya memutuskan untuk menggunakan `IntegerField` untuk atribut ini.
+
+   - `release_date`<br>
+     Karena berupa tanggal, saya memutuskan untuk menggunakan `DateField` untuk atribut ini. Menurut saya, hal ini akan memudahkan untuk _formatting_ tanggal dibandingkan menggunakan `CharField`.
+
+   - `review`<br>
+     Karena review cenderung berupa paragraf yang terdiri dari beberapa kalimat, maka saya memutuskan untuk memanfaatkan `TextField` pada atribut ini.
+
+4. Menambahkan 10 data<br>
+   Untuk menambahkan 10 data pada _database_, maka hal yang saya lakukan adalah membuat folder baru yang bernama `fixtures` di dalam folder `mywatchlist`, kemudian membuat file JSON baru yang bernama `initial_watchlist_data.json` di dalam folder tersebut. Kemudian saya menambahkan 10 data dengan format sebagai berikut:
+
+   ```json
+   [
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "title": "Avengers: Endgame",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2019-04-24",
+            "review": "This is the ultimate treat for Marvel fans who has been there since the beginning of the Marvel Cinematic Universe. Marvel fans can't miss this epic conclusion!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "title": "Spider-Man: No Way Home",
+            "watched": true,
+            "rating": 5,
+            "release_date": "2021-12-15",
+            "review": "The fans' anticipation of this epic conclusion of the Spider-Man MCU trilogy will be well worth it. Watch it will fellow Spider-Man and/or MCU fans, get a popcorn, and experience a brilliant action-packed and heartfelt Spider-Man movie."
+        }
+    },
+    ...
+    ]
+   ```
+
+   Atribut masing-masing data disesuaikan dengan atribut yang ada di class `MyWatchList`.
+
+5. Menyajikan data dalam format HTML, JSON, dan XML<br>
+   Untuk membuat fitur ini, maka saya membuat 3 fungsi di `views.py` yang ada pada folder `mywatchlist` sebagai berikut:<br>
+
+   `Untuk HTML`<br>
+
+   ```py
+   def show_watchlist_in_html(request):
+      data = MyWatchList.objects.all()
+      watched_count = MyWatchList.objects.filter(watched=True).count()
+      not_watched_count = MyWatchList.objects.filter(watched=False).count()
+
+      context = {
+         "watchlist_data": data,
+         "often_watch": True if watched_count >= not_watched_count else False
+      }
+      return render(request, "mywatchlist.html", context)
+   ```
+
+   Saya mengambil semua data watchlist yang ada di _database_, kemudian memasukkan ke dalam suatu dictionary `context`, dan memanggil fungsi `render()` dengan memasukkan `context` sebagai salah satu argumen fungsi tersebut.
+
+   Untuk mengerjakan bagian bonus, saya menambahkan ``
+
+   <br>
+
+   `Untuk JSON`<br>
+
+   ```py
+   def show_watchlist_in_json(request):
+      data = MyWatchList.objects.all()
+      return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+   ```
+
+   <br>
+
+   `Untuk XML`<br>
+
+   ```py
+   def show_watchlist_in_xml(request):
+      data = MyWatchList.objects.all()
+      return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+   ```
+
+   <br><br>
 
 ### Pemeriksaan _Routes_ dengan Postman
 
@@ -107,3 +230,7 @@ text goes here
 
 3. `mywatchlist/xml`<br><br>
    ![mywatchlist/xml](https://user-images.githubusercontent.com/70869295/191177316-bfd46a9e-813e-4d16-8d07-fd3a4bdde1f7.png)
+
+```
+
+```
