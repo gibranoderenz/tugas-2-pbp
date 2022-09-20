@@ -3,13 +3,91 @@
 ### Perbedaan HTML, JSON, dan XML
 
 1. HTML<br>
-   HTML adalah singkatan dari _Hypertext Markup Language_, di mana HTML digunakan untuk menampilkan halaman-halaman web. Elemen-elemen statis (button, hyperlink, image, dan lain-lain) dan juga dinamis (data dari _database_) dapat ditampilkan pada halaman HTML.
+   HTML adalah singkatan dari _Hypertext Markup Language_, di mana HTML digunakan untuk menampilkan halaman-halaman web. Elemen-elemen statis (button, hyperlink, image, dan lain-lain) dan juga dinamis (data dari _database_) dapat ditampilkan pada halaman HTML. Untuk membuat halaman web dengan HTML, kita harus menggunakan format _tags_.
+
+   Contoh dari halaman HTML sederhana adalah sebagai berikut:
+
+   ```html
+   <html>
+     <head>
+       <title>My Epic Website</title>
+     </head>
+     <body>
+       <h1>Hey, this is an H1!</h1>
+       <p>This is fun, isn't it?</p>
+     </body>
+   </html>
+   ```
 
 2. JSON<br>
-   JSON adalah singkatan dari _JavaScript Object Notation_, di mana data disajikan dalam bentuk _key-value pair_.
+   JSON adalah singkatan dari _JavaScript Object Notation_, di mana JSON menampung data-data aplikasi terkait dalam bentuk _key-value pair_.
+
+   Contoh dari JSON adalah sebagai berikut:
+
+   ```json
+   {
+     "team_name": "Manchester United",
+     "city": "Manchester",
+     "league": "Premier League"
+   }
+   ```
+
+   Suatu JSON bisa berupa _nested_, sebagai berikut:
+
+   ```json
+   {
+     "name": "Andrew Johnson",
+     "age": 21,
+     "favorite_music": {
+       "title": "Never Gonna Give You Up",
+       "singer": "Rick Astley"
+     }
+   }
+   ```
+
+   Suatu atribut dalam JSON bisa berupa array, sebagai berikut:
+
+   ```json
+   {
+     "name": "Andrew Johnson",
+     "age": 21,
+     "friends": [
+       {
+         "name": "Michael McKenny",
+         "age": 21
+       },
+       {
+         "name": "Susan Connor",
+         "age": 22
+       }
+     ]
+   }
+   ```
 
 3. XML<br>
-   XML adalah singkatan dari _Extensible Markup Language_, di mana XML digunakan untuk melakukan _data-delivery_, seperti halnya JSON. Hal yang membedakan dengan JSON adalah ...
+   XML adalah singkatan dari _Extensible Markup Language_, di mana XML digunakan untuk melakukan _data-delivery_, seperti halnya JSON. Namun, hal yang membedakan antara XML dengan JSON adalah formatnya yang cukup serupa dengan HTML, di mana XML menggunakan _tags_ (contohnya `<firstname>Gibrano</firstname>`).
+
+   Contoh dari XML adalah sebagai berikut:
+
+   ```xml
+   <store>
+      <item>
+         <name>Milk</name>
+         <price>Rp20.000</price>
+         <stock>50</stock>
+      </item>
+      <item>
+         <name>Rice</name>
+         <price>Rp25.000</price>
+         <stock>200</stock>
+      </item>
+      <item>
+         <name>Apple</name>
+         <price>Rp10.000</price>
+         <stock>30</stock>
+      </item>
+   </store>
+   ```
 
 ### Pentingnya _Data-Delivery_ dalam Platform
 
