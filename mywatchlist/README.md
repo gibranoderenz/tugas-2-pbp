@@ -19,6 +19,10 @@ text goes here
 
 text goes here
 
-### Pemeriksaan _routes_ dengan Postman
+### Pemeriksaan _Routes_ dengan Postman
 
-image goes here
+1. `mywatchlist/html`<br>
+
+2. `mywatchlist/json`<br>
+
+3. `mywatchlist/xml`<br>
