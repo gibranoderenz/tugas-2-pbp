@@ -196,7 +196,7 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
 
    Saya mengambil semua data watchlist yang ada di _database_, kemudian memasukkan ke dalam suatu dictionary `context`, dan memanggil fungsi `render()` dengan memasukkan `context` sebagai salah satu argumen fungsi tersebut.
 
-   Untuk mengerjakan bagian bonus, saya menambahkan ``
+   Untuk mengerjakan bagian bonus, saya menambahkan `often_watch` ke dalam dictionary `context`, di mana variabel tersebut memuat informasi apakah user lebih banyak menonton daripada belum menonton. Hal ini agar saya dapat menggunakan informasi ini untuk me-_render_ elemen yang sesuai dengan keterangan pada soal.
 
    <br>
 
@@ -210,6 +210,8 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
 
    <br>
 
+   Seperti view untuk HTML, saya juga mengambil semua data watchlist yang ada di _database_. Hal yang membedakan adalah saya tidak menggunakan fungsi `render()`, melainkan saya hanya mengembalikan suatu `HttpResponse` yang isinya adalah data watchlist dalam bentuk JSON.
+
    `Untuk XML`<br>
 
    ```py
@@ -218,7 +220,45 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
       return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
    ```
 
-   <br><br>
+   Fungsi ini mirip dengan view untuk JSON, hanya saja _response_ yang akan diberikan adalah data watchlist dalam bentuk XML.
+
+   <br>
+
+6. Membuat _routing_<br>
+   Karena di langkah 2 saya sudah men-_state_ bahwa semua _route request_ user yang diawali dengan `mywatchlist/` akan di-_handle_ di dalam file `urls.py` yang ada di dalam folder `mywatchlist`, maka saya harus menambahkan 3 views yang telah dibuat pada langkah 5 ke dalam file tersebut.
+
+   Berikut isi dari `urls.py` tersebut:
+
+   ```py
+   from django.urls import path
+   from mywatchlist import views
+
+   urlpatterns = [
+      path("html/", views.show_watchlist_in_html, name="show_watchlist_in_html"),
+      path("json/", views.show_watchlist_in_json, name="show_watchlist_in_json"),
+      path("xml/", views.show_watchlist_in_xml, name="show_watchlist_in_xml")
+   ]
+   ```
+
+   Terlihat bahwa:<br>
+   a) Jika user mengakses `mywatchlist/html/`, maka fungsi `show_watchlist_in_html()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
+   b) Jika user mengakses `mywatchlist/json/`, maka fungsi `show_watchlist_in_json()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
+   c) Jika user mengakses `mywatchlist/xml/`, maka fungsi `show_watchlist_in_xml()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
+
+7. Melakukan _deployment_<br>
+   Untuk melakukan _deployment_, karena saya menggunakan _repository_ dan _app_ Heroku yang sama dengan Tugas 2, maka saya hanya melakukan perintah berikut:
+
+   ```
+   git add .
+   git commit -m "(some commit message)"
+   git push -u origin main
+   ```
+
+   Perubahan pada kode _repository_ ini akan mengubah pula _app_ Heroku yang terkait.
+
+   Satu hal yang saya ubah adalah `HEROKU_APP_NAME` saya, karena saya mengubah nama _repository_ dan _app_ Heroku agar saya hanya menggunakan _repository_ ini untuk tugas-tugas PBP berikutnya.
+
+<br>
 
 ### Pemeriksaan _Routes_ dengan Postman
 
