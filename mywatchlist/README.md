@@ -230,7 +230,3 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
 
 3. `mywatchlist/xml`<br><br>
    ![mywatchlist/xml](https://user-images.githubusercontent.com/70869295/191177316-bfd46a9e-813e-4d16-8d07-fd3a4bdde1f7.png)
-
-```
-
-```
