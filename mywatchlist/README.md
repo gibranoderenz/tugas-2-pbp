@@ -198,8 +198,6 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
 
    Untuk mengerjakan bagian bonus, saya menambahkan `often_watch` ke dalam dictionary `context`, di mana variabel tersebut memuat informasi apakah user lebih banyak menonton daripada belum menonton. Hal ini agar saya dapat menggunakan informasi ini untuk me-_render_ elemen yang sesuai dengan keterangan pada soal.
 
-   <br>
-
    `Untuk JSON`<br>
 
    ```py
@@ -207,8 +205,6 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
       data = MyWatchList.objects.all()
       return HttpResponse(serializers.serialize("json", data), content_type="application/json")
    ```
-
-   <br>
 
    Seperti view untuk HTML, saya juga mengambil semua data watchlist yang ada di _database_. Hal yang membedakan adalah saya tidak menggunakan fungsi `render()`, melainkan saya hanya mengembalikan suatu `HttpResponse` yang isinya adalah data watchlist dalam bentuk JSON.
 
@@ -221,8 +217,6 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
    ```
 
    Fungsi ini mirip dengan view untuk JSON, hanya saja _response_ yang akan diberikan adalah data watchlist dalam bentuk XML.
-
-   <br>
 
 6. Membuat _routing_<br>
    Karena di langkah 2 saya sudah men-_state_ bahwa semua _route request_ user yang diawali dengan `mywatchlist/` akan di-_handle_ di dalam file `urls.py` yang ada di dalam folder `mywatchlist`, maka saya harus menambahkan 3 views yang telah dibuat pada langkah 5 ke dalam file tersebut.
