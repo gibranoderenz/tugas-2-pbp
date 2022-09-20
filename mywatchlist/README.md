@@ -270,9 +270,10 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
    ```
 
    Terlihat bahwa:<br>
-   a) Jika user mengakses `mywatchlist/html/`, maka fungsi `show_watchlist_in_html()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
-   b) Jika user mengakses `mywatchlist/json/`, maka fungsi `show_watchlist_in_json()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
-   c) Jika user mengakses `mywatchlist/xml/`, maka fungsi `show_watchlist_in_xml()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
+
+   - Jika user mengakses `mywatchlist/html/`, maka fungsi `show_watchlist_in_html()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
+   - Jika user mengakses `mywatchlist/json/`, maka fungsi `show_watchlist_in_json()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
+   - Jika user mengakses `mywatchlist/xml/`, maka fungsi `show_watchlist_in_xml()` pada file `views.py` milik `mywatchlist` akan dijalankan untuk meng-_handle_ _request_ tersebut.<br>
 
 7. Melakukan _deployment_<br>
    Untuk melakukan _deployment_, karena saya menggunakan _repository_ dan _app_ Heroku yang sama dengan Tugas 2, maka saya hanya melakukan perintah berikut:
