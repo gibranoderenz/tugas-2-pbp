@@ -3,17 +3,17 @@
 ### Perbedaan HTML, JSON, dan XML
 
 1. HTML<br>
-   HTML adalah singkatan dari _Hypertext Markup Language_, di mana HTML digunakan untuk ...
+   HTML adalah singkatan dari _Hypertext Markup Language_, di mana HTML digunakan untuk menampilkan halaman-halaman web. Elemen-elemen statis (button, hyperlink, image, dan lain-lain) dan juga dinamis (data dari _database_) dapat ditampilkan pada halaman HTML.
 
 2. JSON<br>
-   JSON adalah singkatan dari _JavaScript Object Notation_, di mana data disajikan dalam bentuk _key-value pair_, seperti halnya _dictionary_ pada Python. ...
+   JSON adalah singkatan dari _JavaScript Object Notation_, di mana data disajikan dalam bentuk _key-value pair_.
 
 3. XML<br>
-   XML adalah singkatan dari _Extended Markup Language_, di mana XML digunakan untuk melakukan _data-delivery_, seperti halnya JSON. Hal yang membedakan dengan JSON adalah ...
+   XML adalah singkatan dari _Extensible Markup Language_, di mana XML digunakan untuk melakukan _data-delivery_, seperti halnya JSON. Hal yang membedakan dengan JSON adalah ...
 
 ### Pentingnya _Data-Delivery_ dalam Platform
 
-text goes here
+_Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tidak ada mekanisme tersebut, maka data dari _database_ tidak bisa ditampilkan di sisi _frontend_. Misalnya, dalam membuat aplikasi pemberitahu cuaca, jika tidak ada sistem _data-delivery_ di dalam aplikasi tersebut, maka data terbaru mengenai cuaca di daerah tertentu tidak dapat ditampilkan pada sisi user dan tentunya, tujuan dari aplikasi tersebut tidak dapat tercapai.
 
 ### Implementasi Checklist Tugas 3
 
