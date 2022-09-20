@@ -198,6 +198,41 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
 
    Untuk mengerjakan bagian bonus, saya menambahkan `often_watch` ke dalam dictionary `context`, di mana variabel tersebut memuat informasi apakah user lebih banyak menonton daripada belum menonton. Hal ini agar saya dapat menggunakan informasi ini untuk me-_render_ elemen yang sesuai dengan keterangan pada soal.
 
+   Data pada `context` dapat saya gunakan pada `mywatchlist.html`, yang akan menjadi tempat di mana saya menyajikan data watchlist dengan HTML. Isi dari file tersebut adalah sebagai berikut:
+
+   ```html
+   {% extends 'base.html' %} {% block content %}
+   <h1>My Watchlist</h1>
+
+   <!-- Display message yang berbeda tergantung apakah user lebih sering menonton atau tidak -->
+   {% if often_watch %}
+   <h3>Selamat, kamu sudah banyak menonton!</h3>
+   {% else %}
+   <h3>Wah, kamu masih sedikit menonton!</h3>
+   {% endif %}
+
+   <!-- Iterasi semua data watchlist -->
+   {% for data in watchlist_data %}
+   <div>
+     <h3>{{data.pk}}. {{data.title}}</h3>
+
+     <strong>Watched</strong>
+     <p>{{data.watched}}</p>
+
+     <strong>Rating</strong>
+     <p>{{data.rating}}</p>
+
+     <strong>Release Date</strong>
+     <!-- Formatting tanggal -->
+     <p>{{data.release_date | date:"F j, Y"}}</p>
+
+     <strong>Review</strong>
+     <p>{{data.review}}</p>
+     <hr />
+   </div>
+   {% endfor %} {% endblock content %}
+   ```
+
    `Untuk JSON`<br>
 
    ```py
