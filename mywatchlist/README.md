@@ -258,8 +258,6 @@ _Data-delivery_ sangat esensial di dalam proses kerja platform, karena jika tida
 
    Satu hal yang saya ubah adalah `HEROKU_APP_NAME` saya, karena saya mengubah nama _repository_ dan _app_ Heroku agar saya hanya menggunakan _repository_ ini untuk tugas-tugas PBP berikutnya.
 
-<br>
-
 ### Pemeriksaan _Routes_ dengan Postman
 
 1. `mywatchlist/html`<br><br>
