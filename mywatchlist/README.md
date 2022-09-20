@@ -22,7 +22,10 @@ text goes here
 ### Pemeriksaan _Routes_ dengan Postman
 
 1. `mywatchlist/html`<br>
+![mywatchlist/html](https://user-images.githubusercontent.com/70869295/191177256-4a9698d9-0579-41bf-b510-fc541f92fa43.png)
 
 2. `mywatchlist/json`<br>
+![mywatchlist/json](https://user-images.githubusercontent.com/70869295/191177273-f4fe2c95-ac57-4548-bbd0-01562d0c1d28.png)
 
 3. `mywatchlist/xml`<br>
+![mywatchlist/xml](https://user-images.githubusercontent.com/70869295/191177316-bfd46a9e-813e-4d16-8d07-fd3a4bdde1f7.png)
