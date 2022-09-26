@@ -20,60 +20,61 @@
     </div>
  </nav>
 
-<table>
-    <tr>
-        <td class="table-header">User</td>
-        <td class="table-header">Judul</td>
-        <td class="table-header">Keterangan</td>
-        <td class="table-header">Dibuat</td>
-        <td class="table-header">Status</td>
-        <td class="table-header">Ubah Status</td>
-        <td class="table-header">Hapus</td>
-    </tr>
-
-    {% for task in tasks %}
-    <tr>
-        <td>{{ task.user.username }}</td>
-        <td>{{ task.title }}</td>
-        <td class="description-col">{{ task.description }}</td>
-        <td>
-            {{ task.date | date:"N j, Y"}}<br>
-            {{ task.date | date:"H:i"}}
-        </td>
-        <td>
-            {% if task.is_finished %}
-            <p class="tag completed">
-                Selesai
-            </p>
-            {% else %}
-            <p class="tag not-completed">
-                Belum Selesai
-            </p>
-            {% endif %}
-            
-        </td>
-        <td>
-            <a class="btn toggle-btn" href="{% url 'todolist:toggle_task' task.id %}">
-                Ubah
-            </a>
-        </td>
-        <td>
-            <a class="btn delete-btn" href="{% url 'todolist:delete_task' task.id %}">
-                Hapus Task
-            </a>
-        </td>
-    </tr>
-    {% endfor %}
+ <div style="margin: 3rem 5rem 5rem 5rem;">
+    <table>
+        <tr>
+            <td class="table-header">User</td>
+            <td class="table-header">Judul</td>
+            <td class="table-header">Keterangan</td>
+            <td class="table-header">Dibuat</td>
+            <td class="table-header">Status</td>
+            <td class="table-header">Ubah Status</td>
+            <td class="table-header">Hapus</td>
+        </tr>
     
-    <tr>
-        <td class="add-row" colspan="7">
-            <a class="btn add-btn" href="{% url 'todolist:create_task' %}">
-                Tambah Task
-            </a>
-        </td>
-    </tr>
-    
-</table>
-
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.user.username }}</td>
+            <td>{{ task.title }}</td>
+            <td class="description-col">{{ task.description }}</td>
+            <td>
+                {{ task.date | date:"N j, Y"}}<br>
+                {{ task.date | date:"H:i"}}
+            </td>
+            <td>
+                {% if task.is_finished %}
+                <p class="tag completed">
+                    Selesai
+                </p>
+                {% else %}
+                <p class="tag not-completed">
+                    Belum Selesai
+                </p>
+                {% endif %}
+                
+            </td>
+            <td>
+                <a class="btn toggle-btn" href="{% url 'todolist:toggle_task' task.id %}">
+                    Ubah
+                </a>
+            </td>
+            <td>
+                <a class="btn delete-btn" href="{% url 'todolist:delete_task' task.id %}">
+                    Hapus Task
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+        <tr>
+            <td class="add-row" colspan="7">
+                <a class="btn add-btn" href="{% url 'todolist:create_task' %}">
+                    Tambah Task
+                </a>
+            </td>
+        </tr>
+        
+    </table>
+ </div>
 
  {% endblock content %}
