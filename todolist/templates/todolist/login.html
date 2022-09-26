@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Login | To Do List</title>
+{% endblock meta %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'todolist/style.css' %}">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+ </style>
+
+<nav><h1>To Do List</h1></nav>
+
+<section class="container">
+    <h2>Login</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br>
+            
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br>
+
+        <input class="btn" type="submit" value="Login">
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
+
+</section>
+
+{% endblock content %}

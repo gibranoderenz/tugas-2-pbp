@@ -1,0 +1,118 @@
+body {
+    font-family: 'Noto Sans Mono', monospace;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.nav-right {
+    display: flex;
+    gap: 2.5rem;  
+    justify-items: center;
+    align-items: center;
+}
+
+table, tr, td {
+    border-collapse: collapse;
+    margin: 0 auto 0 auto;
+    
+}    
+
+tr, td {
+    border: 1px solid;
+    border-color: #e0e0e0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.table-header {
+    font-weight: bold;
+}
+
+.description-col {
+    max-width: 300px;
+}
+
+.tag {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    width: 4rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+}
+
+.completed {
+    background-color: green;
+}
+
+.not-completed {
+    background-color: red;
+}
+
+.btn {
+    font-family: 'Noto Sans Mono', monospace;
+    background-color: gold;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-decoration: none;
+    color: black;
+    border: 1px solid;
+}
+
+.btn:hover {
+    background-color: lightgray;
+}
+
+.toggle-btn {
+    background-color: #ececec;
+}
+
+.delete-btn {
+    background-color: black;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: white;
+    border: 1px solid;
+    color: red;
+    font-weight: bold;
+}
+
+.add-row {
+    padding: 0;
+}
+
+.add-btn {
+    background-color: white;
+    border-color: #e0e0e0;
+    display: block;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.container {
+    border: 1px solid;
+    margin: 0 20rem 0 20rem;
+    padding: 2rem;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+ }
+ 
+ 
+ input, textarea {
+     width: 100%;
+     margin: 0.5rem 0 1rem 0;
+     padding: 0.5rem;
+ }

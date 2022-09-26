@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Registrasi Akun | To Do List</title>
+{% endblock meta %}
+
+{% block content %}  
+<link rel="stylesheet" href="{% static 'todolist/style.css' %}">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+ </style>
+
+<nav><h1>To Do List</h1></nav>
+
+<section class="container">
+    <h1>Registrasi Akun</h1>  
+
+    <form method="POST">
+        {% csrf_token %} 
+        {% for field in form %}
+        <div>
+            {{ field.errors }}
+            {{ field.label_tag }}<br>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <input class="btn" type="submit" name="submit" value="Daftar"/>
+    </form>
+
+    {% if messages %}  
+        <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+            {% endfor %}  
+        </ul>   
+    {% endif %}
+
+    Sudah mempunyai akun? <a href="{% url 'todolist:login' %}">Masuk</a>
+
+</section>  
+
+{% endblock content %}
