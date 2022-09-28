@@ -20,7 +20,7 @@
     </div>
  </nav>
 
- <div style="margin: 3rem 5rem 5rem 5rem;">
+ <div style="margin: 3rem 5rem 5rem 5rem; display: flex; flex-direction: column; justify-items: center; align-items: center;">
     <table>
         <tr>
             <td class="table-header">User</td>
@@ -43,11 +43,11 @@
             </td>
             <td>
                 {% if task.is_finished %}
-                <p class="tag completed">
+                <p class="tag completed" style="background-color: #22c55e">
                     Selesai
                 </p>
                 {% else %}
-                <p class="tag not-completed">
+                <p class="tag not-completed" style="background-color: #ef4444">
                     Belum Selesai
                 </p>
                 {% endif %}
@@ -73,8 +73,18 @@
                 </a>
             </td>
         </tr>
-        
+            
     </table>
+    
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red; padding: 1rem 2rem; border: 1px solid; border-color: red;">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}  
+    </div>
  </div>
 
  {% endblock content %}

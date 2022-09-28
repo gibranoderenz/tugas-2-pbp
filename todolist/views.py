@@ -10,7 +10,7 @@ from .forms import TaskForm
 # Create your views here.
 @login_required(login_url="/todolist/login/")
 def home(request):
-    tasks = Task.objects.all()
+    tasks = Task.objects.filter(user=request.user)
 
     context = {"tasks": tasks, "user": request.user}
     return render(request, "todolist/home.html", context)
@@ -68,7 +68,7 @@ def create_task(request):
 
 @login_required(login_url="/todolist/login/")
 def delete_task(request, id):
-    task = Task.objects.get(pk=id)
+    task = Task.objects.filter(pk=id, user=request.user).first()
     if task:
         task.delete()
         return redirect("/todolist")
@@ -78,7 +78,7 @@ def delete_task(request, id):
 
 @login_required(login_url="/todolist/login/")
 def toggle_task(request, id):
-    task = Task.objects.get(pk=id)
+    task = Task.objects.filter(pk=id, user=request.user).first()
     if task:
         task.is_finished = False if task.is_finished else True
         task.save()
