@@ -302,6 +302,7 @@ Hal ini dapat dilakukan dengan langkah sebagai berikut (mengambil contoh dari fo
          <td class="table-header">Keterangan</td>
          <td class="table-header">Dibuat</td>
          <td class="table-header">Status</td>
+         <!-- Termasuk membuat kolom Ubah Status dan Hapus untuk mengerjakan bonus -->
          <td class="table-header">Ubah Status</td>
          <td class="table-header">Hapus</td>
        </tr>
@@ -315,6 +316,7 @@ Hal ini dapat dilakukan dengan langkah sebagai berikut (mengambil contoh dari fo
            {{ task.date | date:"N j, Y"}}<br />
            {{ task.date | date:"H:i"}}
          </td>
+         <!-- Termasuk menggunakan atribut is_finished untuk men-display status task untuk mengerjakan bagian bonus -->
          <td>
            {% if task.is_finished %}
            <p class="tag completed" style="background-color: #22c55e">
@@ -326,6 +328,7 @@ Hal ini dapat dilakukan dengan langkah sebagai berikut (mengambil contoh dari fo
            </p>
            {% endif %}
          </td>
+         <!-- Termasuk menambahkan button untuk mengubah status task untuk mengerjakan bagian bonus -->
          <td>
            <a
              class="btn toggle-btn"
@@ -366,6 +369,8 @@ Hal ini dapat dilakukan dengan langkah sebagai berikut (mengambil contoh dari fo
      </div>
    </div>
    ```
+
+   Pada dasarnya, halaman ini memanfaatkan tag `<table>` untuk menyajikan semua task yang user miliki dalam format tabel. Hal yang disajikan adalah judul, deskripsi, waktu dibuat, status task, serta button untuk mengubah status task dan menghapus task. Halaman ini juga menampilkan pesan error jika terjadi suatu error.
 
 6. Membuat halaman untuk menambah task<br/>
    Untuk membuat hal tersebut, saya membuat view untuk meng-handle _request_ tersebut dan `create_task.html` yang akan memuat form untuk membuat task baru.
