@@ -23,7 +23,6 @@
  <div style="margin: 3rem 5rem 5rem 5rem; display: flex; flex-direction: column; justify-items: center; align-items: center;">
     <table>
         <tr>
-            <td class="table-header">User</td>
             <td class="table-header">Judul</td>
             <td class="table-header">Keterangan</td>
             <td class="table-header">Dibuat</td>
@@ -34,7 +33,6 @@
     
         {% for task in tasks %}
         <tr>
-            <td>{{ task.user.username }}</td>
             <td>{{ task.title }}</td>
             <td class="description-col">{{ task.description }}</td>
             <td>

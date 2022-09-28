@@ -37,12 +37,11 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("/todolist")
+            return redirect("/todolist/")
         else:
             messages.info(request, "Username atau password salah!")
 
-    context = {}
-    return render(request, "todolist/login.html", context)
+    return render(request, "todolist/login.html")
 
 
 def logout_user(request):
