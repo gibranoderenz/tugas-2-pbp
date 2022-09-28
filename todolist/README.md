@@ -200,7 +200,7 @@ Hal ini dapat dilakukan dengan langkah sebagai berikut (mengambil contoh dari fo
 
    Di sini, terdapat `<form>` yang sudah disisipkan `CSRF token`. Pada form tersebut akan di-render field-field terkait pembuatan user menggunakan `for-loop` yang diperoleh dari `context` yang di-pass di views `register_user` sebelumnya. Disajikan juga suatu input berupa submit yang akan mensubmisi data kepada server untuk diproses.
 
-   Selain itu, disajikan pula pesan error jika memang ada untuk memudahkan user ketika membuat suatu kesalahan saat memasukkan data.
+   Selain itu, disajikan pula pesan error, jika memang ada error, untuk memudahkan user ketika membuat suatu kesalahan saat memasukkan data.
 
    Sebagai tambahan, ada opsi bagi user yang sudah mendaftarkan akun untuk login dengan memencet tombol `Masuk`.
 
