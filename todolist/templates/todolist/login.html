@@ -6,39 +6,34 @@
 {% endblock meta %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'todolist/style.css' %}">
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
- </style>
-
-<nav><h1>To Do List</h1></nav>
-
-<section class="container">
-    <h2>Login</h2>
-    <form method="POST" action="">
+<nav class="text-xl font-bold px-8 pt-4 md:text-2xl sticky top-0">To Do List</nav>
+<section class="flex items-center justify-center h-screen gap-12 px-8">
+    <div class="w-full md:w-2/3 lg:w-1/2 p-4 flex flex-col gap-8">
+        <p class="text-3xl font-bold">Siap produktif, nih :)</p>
+    <form class="w-full" method="POST" action="">
         {% csrf_token %}
-        <label>Username:</label><br>
-        <input type="text" name="username" required><br>
+        <label class="mb-4">Username</label><br>
+        <input class="w-full rounded-lg border-2 border-black mb-4" type="text" name="username" placeholder="Enter your username" required><br>
             
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br>
+        <label class="mb-4">Password</label><br>
+        <input class="w-full rounded-lg border-2 border-black mb-4" type="password" name="password" placeholder="**********" required><br>
 
-        <input class="btn" type="submit" value="Login">
+        <input class="px-4 py-2 bg-black text-white w-full rounded-lg" type="submit" value="Login">
     </form>
 
     {% if messages %}
         <ul>
             {% for message in messages %}
-            <p style="color: red; padding: 1rem 2rem; border: 1px solid; border-color: red;">
+            <p class="px-4 py-3 border border-2 border-black rounded-lg text-center">
                 {{ message }}
             </p>
             {% endfor %}
         </ul>
     {% endif %}     
         
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
-
+    <p>Belum mempunyai akun? <a class="text-blue-600 underline" href="{% url 'todolist:register' %}">Buat Akun</a></p>
+    </div>
+    <lottie-player class="hidden md:block md:w-1/3 lg:w-1/2" src="https://assets9.lottiefiles.com/packages/lf20_ipcfpsml.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>
 </section>
 
 {% endblock content %}
