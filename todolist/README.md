@@ -593,3 +593,7 @@ Hal ini dapat dilakukan dengan langkah sebagai berikut (mengambil contoh dari fo
    d. Membuat halaman responsif
 
    Untuk itu saya memanfaatkan fitur yang dimiliki Tailwind dalam meng-_handle_ _responsive design_. Namun, karena keterbatasan waktu, saya tidak sempat membuat navbar saya menjadi responsif.
+
+   e. Implementasi bonus
+
+   Untuk itu, saya memutuskan untuk membuat interaksi yang sederhana, yaitu menambahkan `hover:border-black` pada _container_ _card_, yang akan mengubah warna border _card_ menjadi warna hitam.
