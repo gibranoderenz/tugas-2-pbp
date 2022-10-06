@@ -10,11 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap"
       rel="stylesheet"
     />
-    {% block meta %} {% endblock meta %}
-  </head>
-
-  <body>
-    {% block content %} {% endblock content %}
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -36,5 +31,10 @@
         }
       }
     </style>
+    {% block meta %} {% endblock meta %}
+  </head>
+
+  <body>
+    {% block content %} {% endblock content %}
   </body>
 </html>
