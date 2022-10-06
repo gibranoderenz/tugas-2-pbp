@@ -1,4 +1,4 @@
-# Tugas 4 PBP
+# Tugas 4 dan 5 PBP
 
 ### Link
 
@@ -448,3 +448,148 @@ Hal ini dapat dilakukan dengan langkah sebagai berikut (mengambil contoh dari fo
    e) Mengisi judul dan deskripsi task.<br/>
    f) Mengulangi penambahan task sampai ada 3 task untuk user Gib.<br/>
    g) Mengulangi langkah d-f dengan user kedua.<br/>
+
+### Web Design
+
+1. Macam-macam penyajian CSS kepada HTML<br>
+
+   - `Inline CSS`<br>
+     Inline CSS menyajikan _style_ kepada HTML dengan menambahkan atribut pada tag HTML yang bersangkutan.<br>
+     Contoh:
+
+   ```html
+   <h1 style="color:red;">Hey!</h1>
+   ```
+
+   Kelebihan dari metode penyajian ini adalah kita tidak perlu memikirkan nama _class_ CSS untuk menghias atribut HTML yang terkait. Tetapi, dokumen HTML terkait mungkin menjadi cukup berantakan dengan _styling_, dan untuk pengubahan di kemudian hari tidak praktis.
+
+   - `Internal CSS`<br>
+     Internal CSS menyajikan _style_ kepada HTML dengan menambahkan _CSS selector_ yang terkait pada tag `<style>` di file HTML.<br>
+     Contoh:
+
+   ```html
+   <style>
+     h1 {
+       color: red;
+     }
+
+     .btn {
+       padding: 4px;
+     }
+   </style>
+
+   <!-- Akan mendapatkan style dari <style> -->
+   <h1>Hey!</h1>
+   <p class="btn">Aku Tombol :)</p>
+   ```
+
+   Kelebihan dari metode ini adalah masalah yang dialami Inline CSS teratasi, di mana bagian HTML hanya terdiri dari tag HTML saja, sementara _style_-nya dipisah. Tetapi, file HTML yang terkait masih dapat menjadi terlal besar karena ada tag `<style>` tersebut. Selain itu, menentukan nama _class_ CSS cukup memakan waktu.
+
+   `External CSS`<br>
+   External CSS menyajikan _style_ kepada HTML dengan menambahkan _CSS selector_ yang terkait pada file CSS terpisah, dan file tersebut akan direferensi oleh file HTML terkait untuk memperoleh _style_.<br>
+   Contoh:
+
+   ```css
+   h1 {
+     color: red;
+   }
+
+   a {
+     color: blue;
+   }
+
+   .container {
+     margin: 2px 4px;
+     padding: 4px;
+     border: 1px solid;
+   }
+   ```
+
+   Kelebihan dari metode ini adalah _separation of concern_ yang nyata antara HTML dan CSS. Untuk mengubah _style_ HTML terkait di kemudian hari juga lebih dimudahkan. Tetapi, seperti Internal CSS, pemberian nama _class_ CSS cukup memakan waktu.
+
+2. Tag HTML<br>
+   `<p>`<br>
+   Tag ini dipakai untuk menampilkan teks.
+
+   `<a>`<br>
+   Tag ini digunakan untuk menampilkan _link_ kepada destinasi tertentu (_link_ eksternal, halaman lain dalam website, dan lain-lain).
+
+   `<span>`<br>
+   Tag ini dapat dipakai untuk menghias suatu teks tertentu dalam tag lain.<br>
+   Contoh:
+
+   ```html
+   <p>Welcome to My <span style="...">Website</span></p>
+   <p></p>
+   ```
+
+   `<strong>`<br>
+   Tag ini digunakan untuk membuat _children_-nya memiliki _font-weight_ tebal.
+
+   `<body>`<br>
+   Tag ini menandai bagian _body_ HTML.
+
+   `<style>`<br>
+   Tag ini dapat menampung semua _style_ di halaman HTML terkait dengan memanfaatkan _CSS selector_.
+
+   `<img>`<br>
+   Tag ini digunakan untuk menampilkan foto di halaman HTML
+
+   `<div>`<br>
+   Tag ini digunakan untuk menjadi _container_ dari _children-children_-nya.
+
+   `<nav>`<br>
+   Tag ini digunakan untuk menandakan bagian navigasi (serupa dengan div, tetapi lebih deskriptif).
+
+   `<section>`<br>
+   Tag ini serupa dengan div, tetapi lebih deskriptif karena menggunakan istilah _section_.
+
+   `<input>`<br>
+   Tag ini digunakan untuk menampilkan box untuk user melakukan input.
+
+   `button`<br>
+   Tag ini digunakan untuk menampilkan tombol di halaman HTML.
+
+3. Tipe CSS selector<br>
+   `*`<br>
+   Memilih semua elemen dalam halaman HTML.
+
+   `.className`<br>
+   Memilih semua elemen HTML yang memiliki nama _class_ `className`.
+
+   `#id1`<br>
+   Memilih elemen HTML yang memiliki ID _id1_.
+
+   `h1, h2, a, input, atau elemen HTML lainnya`<br>
+   Memilih elemen HTML yang terkait
+
+   `:hover`<br>
+   Mengendalikan perubahan yang akan terjadi jika suatu elemen di-_hover_ dengan _mouse_ user.
+
+4. Implementasi checklist<br>
+   a. Setup Tailwind
+
+   Untuk tugas 5 ini, saya menggunakan Tailwind CSS untuk menghias halaman HTML. Untuk itu, saya mengikuti langkah di [_link_ berikut](https://tailwindcss.com/docs/installation/play-cdn) dan memodifikasi file `base.html`.
+
+   b. Kustomisasi halaman `login`, `register`, dan `create-task`.
+
+   `login`<br>
+   Untuk itu, saya ingin menampilkan navbar sederhana di atas halaman, form di sebelah kiri halaman, dan animasi di sebelah kanan halaman. Saya menggunakan _class_ yang disediakan oleh Tailwind untuk mencapai desain yang saya inginkan.
+
+   `register`<br>
+   Halaman ini serupa dengan halaman `login`, hanya saja form registrasi akun saya letakkan di sebelah kanan halaman, dan elemen animasi di sebelah kiri halaman. Untuk menambah _class_ pada elemen form, saya menggunakan _package_ `django-widget-tweaks` yang memudahkan proses ini.
+
+   `create-task`<br>
+   Halaman ini mungkin yang paling sederhana, di mana hanya ada sebuah formulir untuk membuat _to-do_ baru. Saya memutuskan untuk meletakkan form tersebut di tengah halaman (setidaknya secara horizontal 😄). Untuk menambah _class_ pada elemen form, seperti pada halaman `register`, saya menggunakan _package_ `django-widget-tweaks` yang memudahkan proses ini.
+
+   c. Kustomisasi halaman `todolist` menggunakan _cards_
+
+   Untuk itu, saya ingin menampilkan suatu navbar yang memuat nama user dan tombol untuk _logout_ user di atas halaman. Kemudian, saya menyajikan _to-do_ user dengan div yang ujungnya dibulatkan sedikit agar memperoleh desain yang sederhana tetapi elegan. Di dalam _card_ tersebut ada judul, deskripsi, dan tanggal pembuatan _to-do_, serta tombol untuk mengubah status atau menghapus _to_do_.
+
+   Jika user mengubah status menjadi selesai, maka border _card_ akan menjadi hijau, sedangkan jika belum diselesaikan, border akan tetap merah. Hal ini untuk memudahkan user membedakan task mana yang sudah atau belum selesai, disertai dengan penyajian yang sederhana.
+
+   Jika user belum memiliki task, maka akan ditampilkan animasi dan keterangan bahwa ia belum mempunyai task. Hal ini bertujuan untuk membuat tampilan halaman lebih dinamis dan elegan.
+
+   d. Membuat halaman responsif
+
+   Untuk itu saya memanfaatkan fitur yang dimiliki Tailwind dalam meng-_handle_ _responsive design_. Namun, karena keterbatasan waktu, saya tidak sempat membuat navbar saya menjadi responsif.
