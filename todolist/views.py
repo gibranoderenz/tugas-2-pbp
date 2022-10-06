@@ -11,7 +11,7 @@ from .forms import TaskForm
 @login_required(login_url="/todolist/login/")
 def home(request):
     tasks = Task.objects.filter(user=request.user).order_by("is_finished")
-    done_tasks = Task.objects.filter(is_finished=True).count()
+    done_tasks = Task.objects.filter(user=request.user, is_finished=True).count()
 
     context = {"tasks": tasks, "done_tasks": done_tasks, "user": request.user}
     return render(request, "todolist/home.html", context)
