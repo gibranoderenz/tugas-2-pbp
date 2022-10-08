@@ -6,6 +6,61 @@
 {% endblock meta %}
 
 {% block content %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(() => {
+        $.ajax(
+            {
+                type: "GET",
+                url: "{% url 'todolist:json' %}",
+                dataType: "json",
+                success: (tasks) => {
+                    tasks.map((task) => {
+                        const taskDate = new Date(`${task.fields.date}`)
+                        const formattedTaskDate = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long', timeStyle: 'short' }).format(taskDate)
+                        const taskSection = document.querySelector(".tasks")
+                        if (task.fields.is_finished) {
+                            taskSection.insertAdjacentHTML('beforeend', 
+                                `<div class="w-3/4 md:w-1/2 flex flex-col md:flex-row gap-8 items-center justify-between border border-2 border-green-600 px-6 py-4 rounded-lg  mb-4 hover:border-black">
+                                    <div class="w-full md:w-3/4 flex flex-col gap-2 line-through decoration-slate-500">
+                                        <p class="text-xl font-bold mb-2">${task.fields.title}</p>
+                                        <p class="text-gray-400">${task.fields.description}</p>
+                                        <div class="text-sm flex justify-end mt-3">
+                                            <p>${formattedTaskDate}</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col w-full md:w-1/4 text-center gap-2">
+                                        <a class="px-4 py-2 bg-black text-white rounded-lg" href="/todolist/toggle-task/${task.pk}">Ubah Status</a>
+                                        <a class="px-4 py-2 text-red-600 border border-2 border-red-600 rounded-lg" href="/todolist/delete-task/${task.pk}">Hapus</a>
+                                    </div>
+                                </div>`
+                            )
+                        } else {
+                            taskSection.insertAdjacentHTML('beforeend', 
+                                `<div class="w-3/4 md:w-1/2 flex flex-col md:flex-row gap-8 items-center justify-between border border-2 border-red-600 px-6 py-4 rounded-lg mb-4 hover:border-black">
+                                    <div class="w-full md:w-3/4 flex flex-col gap-2">
+                                        <p class="text-xl font-bold mb-2">${task.fields.title}</p>
+                                        <p class="text-gray-400">${task.fields.description}</p>
+                                        <div class="text-sm flex justify-end mt-3">
+                                            <p>${formattedTaskDate}</p>
+                                        </div>
+                                        </div>
+                                        <div class="flex flex-col w-full md:w-1/4 text-center gap-2">
+                                            <a class="px-4 py-2 bg-black text-white rounded-lg" href="/todolist/toggle-task/${task.pk}">Ubah Status</a>
+                                            <a class="px-4 py-2 text-red-600 border border-2 border-red-600 rounded-lg" href="/todolist/delete-task/${task.pk}">Hapus</a>
+                                        </div>
+                                </div>`
+                            )
+                        }
+                    })
+                }, 
+                error: (err) => {
+                    console.log(err)
+                }
+            }
+        )
+    });
+    </script>
 
 
 <nav class="bg-black text-white px-6 py-4 flex justify-between items-center mb-16">
@@ -22,44 +77,13 @@
     <p>Waduh, kamu belum punya task.</p>
     </div>
     {% else %}
-    <p class="text-lg font-bold mb-8 mx-4 md:mx-0">Kamu sudah menyelesaikan {{done_tasks}} dari {{tasks.count}} task.</p>
-    {% for task in tasks %}
-    {% if task.is_finished %}
-    <div class="w-3/4 md:w-1/2 flex flex-col md:flex-row gap-8 items-center justify-between border border-2 border-green-600 px-6 py-4 rounded-lg  mb-4 hover:border-black">
-        <div class="w-full md:w-3/4 flex flex-col gap-2 line-through decoration-slate-500">
-            <p class="text-xl font-bold mb-2">{{task.title}}</p>
-            <p class="text-gray-400">{{task.description}}</p>
-            <div class="text-sm flex justify-end mt-3">
-                <p>{{task.date | date:"F, j Y | H:i"}}</p>
-            </div>
-        </div>
-        <div class="flex flex-col w-full md:w-1/4 text-center gap-2">
-            <a class="px-4 py-2 bg-black text-white rounded-lg" href="{% url 'todolist:toggle_task' task.id %}">Ubah Status</a>
-            <a class="px-4 py-2 text-red-600 border border-2 border-red-600 rounded-lg" href="{% url 'todolist:delete_task' task.id %}">Hapus</a>
-        </div>
-    </div>
-    {% else %}
-    <div class="w-3/4 md:w-1/2 flex flex-col md:flex-row gap-8 items-center justify-between border border-2 border-red-600 px-6 py-4 rounded-lg mb-4 hover:border-black">
-        <div class="w-full md:w-3/4 flex flex-col gap-2">
-            <p class="text-xl font-bold mb-2">{{task.title}}</p>
-            <p class="text-gray-400">{{task.description}}</p>
-            <div class="text-sm flex justify-end mt-3">
-                <p>{{task.date | date:"F, j Y | H:i"}}</p>
-            </div>
-            </div>
-        <div class="flex flex-col w-full md:w-1/4 text-center gap-2">
-            <a class="px-4 py-2 bg-black text-white rounded-lg" href="{% url 'todolist:toggle_task' task.id %}">Ubah Status</a>
-            <a class="px-4 py-2 text-red-600 border border-2 border-red-600 rounded-lg" href="{% url 'todolist:delete_task' task.id %}">Hapus</a>
-        </div>
+    <div class="tasks w-full flex flex-col items-center justify-center">
+        <p class="text-lg font-bold mb-8 mx-4 md:mx-0">Kamu sudah menyelesaikan {{done_tasks}} dari {{tasks.count}} task.</p>
     </div>
     {% endif %}
-    {% endfor %}
-    {% endif %}
-        
-        <a class="px-4 py-2 bg-black text-white rounded-lg mt-4" href="{% url 'todolist:create_task' %}">Tambah Task</a>
 
+    <p class="px-4 py-2 mt-2 bg-black text-white rounded-lg shadow-md cursor-pointer border-2 border-black hover:px-6 hover:text-black hover:bg-white hover:border-2 hover:border-black duration-75">Tambah Task</p>
             
-    
     <div>
         {% if messages %}
             {% for message in messages %}
@@ -69,6 +93,7 @@
             {% endfor %}
         {% endif %}  
     </div>
+
  </section>
 
 
