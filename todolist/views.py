@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
@@ -7,7 +8,7 @@ from django.contrib import messages
 from .models import Task
 from .forms import TaskForm
 from django.core import serializers
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 
 # Create your views here.
 @login_required(login_url="/todolist/login/")
@@ -54,39 +55,60 @@ def logout_user(request):
 
 @login_required(login_url="/todolist/login/")
 def create_task(request):
-    form = TaskForm()
-
-    if request.method == "POST":
+    if (
+        request.headers.get("x-requested-with") == "XMLHttpRequest"
+        and request.method == "POST"
+    ):
         form = TaskForm(request.POST)
-        if form.is_valid():
+        if form.is_valid:
             new_task = form.save(commit=False)
             new_task.user = request.user
             new_task.save()
-            return redirect("/todolist")
-
-    context = {"form": form}
-    return render(request, "todolist/create_task.html", context)
+            data = serializers.serialize(
+                "json",
+                [
+                    new_task,
+                ],
+            )
+            struct = json.loads(data)
+            data = json.dumps(struct[0])
+            return HttpResponse(data, content_type="application/json")
+    return HttpResponseBadRequest("An error occured.")
 
 
 @login_required(login_url="/todolist/login/")
 def delete_task(request, id):
-    task = Task.objects.filter(pk=id, user=request.user).first()
-    if task:
-        task.delete()
-        return redirect("/todolist")
-    messages.error(request, "An error occurred while deleting the task.")
-    return redirect("/todolist")
+    if (
+        request.headers.get("x-requested-with") == "XMLHttpRequest"
+        and request.method == "DELETE"
+    ):
+        task = Task.objects.filter(pk=id, user=request.user).first()
+        if task:
+            print("berhasil")
+            task.delete()
+            tasks = Task.objects.all()
+            return HttpResponse(
+                serializers.serialize("json", tasks), content_type="application/json"
+            )
+    return HttpResponseBadRequest("An error occured.")
 
 
 @login_required(login_url="/todolist/login/")
 def toggle_task(request, id):
-    task = Task.objects.filter(pk=id, user=request.user).first()
-    if task:
-        task.is_finished = False if task.is_finished else True
-        task.save()
-        return redirect("/todolist")
-    messages.error(request, "An error occurred while editing the task.")
-    return redirect("/todolist")
+    if (
+        request.headers.get("x-requested-with") == "XMLHttpRequest"
+        and request.method == "POST"
+    ):
+        task = Task.objects.filter(pk=id, user=request.user).first()
+        if task:
+            task.is_finished = False if task.is_finished else True
+            task.save()
+            tasks = Task.objects.all()
+            return HttpResponse(
+                serializers.serialize("json", tasks), content_type="application/json"
+            )
+        messages.error(request, "An error occurred while editing the task.")
+    return HttpResponseBadRequest("An error occured.")
 
 
 @login_required(login_url="/todolist/login")
