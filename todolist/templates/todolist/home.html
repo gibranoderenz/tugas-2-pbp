@@ -37,13 +37,12 @@
                         if (tasks.length == 0) {
                             const taskSection = document.querySelector(".tasks")
                             taskSection.insertAdjacentHTML('beforeend', 
-                            `<div class="my-4 grid place-items-center">
-                                <lottie-player src="https://assets9.lottiefiles.com/datafiles/vhvOcuUkH41HdrL/data.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-                                <p>Waduh, kamu belum punya task.</p>
-                            </div>`
+                                `<div class="animation my-4 grid place-items-center">
+                                    <lottie-player src="https://assets9.lottiefiles.com/datafiles/vhvOcuUkH41HdrL/data.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                                    <p>Waduh, kamu belum punya task.</p>
+                                </div>`
                             )
                         } else {
-                            $(".tasks").empty()
                             tasks.map(task => makeTaskCard(task))
                         }
                     }, 
@@ -123,7 +122,10 @@
                         dataType: "json",
                         data: $('form#create-task-form').serialize(),
                         success: (task) => {
-                            $(".tasks").empty()
+                            $('#create-task-form').trigger("reset");
+                            if ($(".animation").length) {
+                                $(".animation").remove()
+                            }
                             makeTaskCard(task)
                             modal.style.display = "none"
                         }, 
