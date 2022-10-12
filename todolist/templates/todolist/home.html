@@ -13,7 +13,7 @@
             const formattedTaskDate = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long', timeStyle: 'short' }).format(taskDate)
             const taskSection = document.querySelector(".tasks")
             taskSection.insertAdjacentHTML('beforeend', 
-                `<div class="border-2 border-black w-1/2 p-6 mb-8 rounded-lg flex gap-8 justify-between items-center ${task.fields.is_finished ? "border-green-600" : "border-red-600"}">
+                `<div id="task-${task.pk}" class="border-2 border-black w-1/2 p-6 mb-8 rounded-lg flex gap-8 justify-between items-center ${task.fields.is_finished ? "border-green-600" : "border-red-600"}">
                     <div class="w-3/4 ${task.fields.is_finished && "line-through decoration-slate-500"}">
                         <p class="text-lg font-bold mb-2">${task.fields.title}</p>
                         <p class="text-slate-400">${task.fields.description}</p>
@@ -81,8 +81,7 @@
                     dataType: "json",
                     headers: {"X-CSRFToken": $('[name=csrfmiddlewaretoken]').val()},
                     success: () => {
-                        $(".tasks").empty()
-                        getTasks()
+                        $(`#task-${pk}`).remove()
                     }, 
                     error: (err) => {
                         console.log("no")
