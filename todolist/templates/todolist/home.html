@@ -83,12 +83,21 @@
         const deleteTask = (pk) => {
             $.ajax(
                 {
-                    url: `delete-task/${pk}`,
+                    url: `delete/${pk}`,
                     type: "DELETE",
                     dataType: "json",
                     headers: {"X-CSRFToken": $('[name=csrfmiddlewaretoken]').val()},
-                    success: () => {
+                    success: (tasks) => {
                         $(`#task-${pk}`).remove()
+                        if (tasks.length == 0) {
+                            const taskSection = document.querySelector(".tasks")
+                            taskSection.insertAdjacentHTML('beforeend', 
+                                `<div class="animation my-4 grid place-items-center">
+                                    <lottie-player src="https://assets9.lottiefiles.com/datafiles/vhvOcuUkH41HdrL/data.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                                    <p>Waduh, kamu belum punya task.</p>
+                                </div>`
+                            )
+                        }
                     }, 
                     error: (err) => {
                         console.log(err)
@@ -123,7 +132,7 @@
                 e.preventDefault();
                 $.ajax(
                     {
-                        url: "{% url 'todolist:create_task' %}",
+                        url: "{% url 'todolist:create_task_ajax' %}",
                         type: "POST",
                         dataType: "json",
                         data: $('form#create-task-form').serialize(),

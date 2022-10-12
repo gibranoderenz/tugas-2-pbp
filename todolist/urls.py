@@ -12,4 +12,6 @@ urlpatterns = [
     path("toggle-task/<int:id>", views.toggle_task, name="toggle_task"),
     path("delete-task/<int:id>", views.delete_task, name="delete_task"),
     path("json/", views.get_json_todolist, name="json"),
+    path("add/", views.create_task_ajax, name="create_task_ajax"),
+    path("delete/<int:id>", views.delete_task_ajax, name="delete_task_ajax"),
 ]
