@@ -14,7 +14,7 @@
             const taskSection = document.querySelector(".tasks")
             taskSection.insertAdjacentHTML('beforeend', 
                 `<div id="task-${task.pk}" class="border-2 border-black w-1/2 p-6 mb-8 rounded-lg flex gap-8 justify-between items-center ${task.fields.is_finished ? "border-green-600" : "border-red-600"}">
-                    <div class="w-3/4 ${task.fields.is_finished && "line-through decoration-slate-500"}">
+                    <div id="task-${task.pk}-text" class="w-3/4 ${task.fields.is_finished && "line-through decoration-slate-500"}">
                         <p class="text-lg font-bold mb-2">${task.fields.title}</p>
                         <p class="text-slate-400">${task.fields.description}</p>
                         <p class="text-sm flex justify-end">${formattedTaskDate}</p>
@@ -62,9 +62,15 @@
                     data: {
                         csrfmiddlewaretoken: "{{csrf_token}}"
                     },
-                    success: () => {
-                        $(".tasks").empty()
-                        getTasks()
+                    success: (task) => {
+                        console.log(task)
+                        if (task.fields.is_finished) {
+                            $(`#task-${pk}`).removeClass("border-red-600").addClass("border-green-600");
+                            $(`#task-${pk}-text`).addClass("line-through decoration-slate-500")
+                        } else {
+                            $(`#task-${pk}`).removeClass("border-green-600").addClass("border-red-600");
+                            $(`#task-${pk}-text`).removeClass("line-through decoration-slate-500")
+                        }
                     }, 
                     error: (err) => {
                         console.log(err)

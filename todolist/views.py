@@ -103,10 +103,15 @@ def toggle_task(request, id):
         if task:
             task.is_finished = False if task.is_finished else True
             task.save()
-            tasks = Task.objects.all()
-            return HttpResponse(
-                serializers.serialize("json", tasks), content_type="application/json"
+            data = serializers.serialize(
+                "json",
+                [
+                    task,
+                ],
             )
+            struct = json.loads(data)
+            data = json.dumps(struct[0])
+            return HttpResponse(data, content_type="application/json")
         messages.error(request, "An error occurred while editing the task.")
     return HttpResponseBadRequest("An error occured.")
 
