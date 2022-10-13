@@ -225,6 +225,6 @@ Dengan AJAX, kita bisa melakukan pemrograman secara asinkronus. Pada dasarnya, d
     ]
    ```
 
-   _Path_ ini diakses di `<script>` bagian `createTsakBtn.onclick` di atas.
+   _Path_ ini diakses di `<script>` bagian `createTaskBtn.onclick` di atas.
 
    Pada akhirnya, _task_ baru akan ditampilkan tanpa perlu dilakukan _page reload_.
