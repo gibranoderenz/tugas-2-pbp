@@ -218,7 +218,11 @@ Dengan AJAX, kita bisa melakukan pemrograman secara asinkronus. Pada dasarnya, d
    _View_ ini dapat diakses di _path_ `/todolist/add`, yang dikonfigurasi di sini:
 
    ```py
-       path("add/", views.create_task_ajax, name="create_task_ajax"),
+    urlpatterns = [
+        ...
+        path("add/", views.create_task_ajax, name="create_task_ajax"),
+        ...
+    ]
    ```
 
    _Path_ ini diakses di `<script>` bagian `createTsakBtn.onclick` di atas.
