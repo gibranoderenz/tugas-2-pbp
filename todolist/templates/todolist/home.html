@@ -13,7 +13,7 @@
             const formattedTaskDate = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long', timeStyle: 'short' }).format(taskDate)
             const taskSection = document.querySelector(".tasks")
             taskSection.insertAdjacentHTML('beforeend', 
-                `<div id="task-${task.pk}" class="border-2 border-black w-1/2 p-6 mb-8 rounded-lg flex flex-col md:flex-row gap-8 justify-between items-center ${task.fields.is_finished ? "border-green-600" : "border-red-600"}">
+                `<div id="task-${task.pk}" class="hover:scale-105 duration-75 border-2 border-black w-1/2 p-6 mb-8 rounded-lg flex flex-col md:flex-row gap-8 justify-between items-center ${task.fields.is_finished ? "border-green-600" : "border-red-600"}">
                     <div id="task-${task.pk}-text" class="text-center md:text-left flex flex-col justify-between gap-8 w-3/4 ${task.fields.is_finished && "line-through decoration-slate-500"}">
                         <div>
                             <p class="text-lg font-bold mb-2">${task.fields.title}</p>
